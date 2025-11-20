@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-12 text-center">
+      <h1>🌐 Közösségi Média</h1>
+      <p class="lead">Itt megtalálsz a különböző platformokon. Szívesen veszem a visszajelzéseket és ötleteket!</p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    @for (social of socials; track social.name) {
+      <div class="col-xl-4 col-md-6 mb-4">
+        <a [href]="social.url" class="card social-card h-100 text-decoration-none" target="_blank">
+          <div class="card-body text-center">
+            <div class="social-icon mb-3" style="font-size: 3rem;">
+              {{ social.icon }}
+            </div>
+            <h5 class="card-title">{{ social.name }}</h5>
+            <p class="card-text text-muted">{{ social.description }}</p>
+            <div class="social-username">
+              <small class="text-primary">{{ social.username }}</small>
+            </div>
+          </div>
+        </a>
+      </div>
+    }
+  </div>
+
+  <!-- Contact Info -->
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <h5>📞 Kapcsolat</h5>
+          <p class="mb-0">Ha bármilyen kérdésed van, ne habozz felvenni velem a kapcsolatot!</p>
+          <p class="mt-2">
+            <strong>Válaszidő:</strong> 24-48 órán belül
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

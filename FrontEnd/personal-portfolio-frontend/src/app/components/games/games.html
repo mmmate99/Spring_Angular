@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h1>🎮 Játék Projektek</h1>
+      <p class="lead">Itt láthatod a játékfejlesztési projektjeimet. Minden projekt tartalmazza a használt technológiákat, állapotát és linkeket.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    @for (game of games; track game.title) {
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-img-top bg-light" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+            <span class="text-muted">🎮 {{ game.title }} Képe</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h5 class="card-title">{{ game.title }}</h5>
+              <span class="badge" [ngClass]="getStatusClass(game.status)">
+                {{ game.status }}
+              </span>
+            </div>
+            
+            <p class="card-text flex-grow-1">{{ game.description }}</p>
+            
+            <div class="mb-3">
+              <strong>Technológiák:</strong>
+              <div class="mt-1">
+                @for (tech of game.technologies; track tech) {
+                  <span class="badge bg-light text-dark me-1 mb-1">{{ tech }}</span>
+                }
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <strong>Főbb jellemzők:</strong>
+              <ul class="small mt-1">
+                @for (feature of game.features; track feature) {
+                  <li>{{ feature }}</li>
+                }
+              </ul>
+            </div>
+
+            <div class="mt-auto">
+              <div class="btn-group w-100" role="group">
+                @if (game.githubUrl !== '#') {
+                  <a [href]="game.githubUrl" class="btn btn-outline-primary btn-sm" target="_blank">
+                    GitHub
+                  </a>
+                }
+                @if (game.demoUrl !== '#') {
+                  <a [href]="game.demoUrl" class="btn btn-primary btn-sm" target="_blank">
+                    Demo
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

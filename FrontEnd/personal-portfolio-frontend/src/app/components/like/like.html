@@ -1,0 +1,13 @@
+<div class="like-widget">
+  <button 
+    class="like-btn btn btn-outline-primary btn-sm"
+    [class.liked]="userHasLiked"
+    [class.animating]="isAnimating"
+    (click)="onLikeClick()"
+    [title]="likeText">
+    
+    <span class="like-icon">❤️</span>
+    <span class="like-count">{{ likeCount }}</span>
+    <span class="like-text">{{ likeText }}</span>
+  </button>
+</div>

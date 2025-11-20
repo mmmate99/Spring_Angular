@@ -1,0 +1,9 @@
+<button 
+  class="theme-toggle-btn btn btn-outline-secondary"
+  (click)="toggleTheme()"
+  [title]="getThemeLabel()"
+  aria-label="Téma váltása">
+  
+  <span class="theme-icon">{{ getThemeIcon() }}</span>
+  <span class="theme-label">{{ getThemeLabel() }}</span>
+</button>

@@ -1,0 +1,19 @@
+<div class="comment-list">
+  <h5 class="mb-3">Hozzászólások ({{ comments.length }})</h5>
+  
+  @if (comments.length === 0) {
+    <div class="text-center text-muted py-4">
+      <p>Még nincsenek hozzászólások.</p>
+      <p>Legyél te az első!</p>
+    </div>
+  } @else {
+    <div class="comments-container">
+      @for (comment of comments; track comment.id) {
+        <app-comment 
+          [comment]="comment"
+          (delete)="onDeleteComment($event)">
+        </app-comment>
+      }
+    </div>
+  }
+</div>

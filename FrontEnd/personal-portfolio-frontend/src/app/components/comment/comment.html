@@ -1,0 +1,19 @@
+<div class="comment-card">
+  <div class="comment-header">
+    <div class="comment-author">
+      <strong>{{ comment.author }}</strong>
+    </div>
+    <div class="comment-actions">
+      <small class="text-muted">{{ getTimeAgo(comment.createdAt) }}</small>
+      <button 
+        class="btn btn-sm btn-outline-danger ms-2" 
+        (click)="onDelete()"
+        title="Komment törlése">
+        ×
+      </button>
+    </div>
+  </div>
+  <div class="comment-content">
+    {{ comment.content }}
+  </div>
+</div>

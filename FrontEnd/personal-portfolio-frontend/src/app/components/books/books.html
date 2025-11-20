@@ -1,0 +1,86 @@
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h1>📚 Könyvek</h1>
+      <p class="lead">Olvasási listám - könyvek amiket épp olvasok, már elolvastam, vagy tervezem olvasni.</p>
+    </div>
+  </div>
+
+  <!-- Currently Reading -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h3 class="mb-3">📖 Jelenleg olvasom</h3>
+      <div class="row">
+        @for (book of books.currentlyReading; track book.title) {
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ book.author }}</h6>
+                <p class="card-text">
+                  <span class="badge bg-info">{{ book.category }}</span>
+                </p>
+                <div class="progress mb-2">
+                  <div class="progress-bar" [style.width.%]="book.progress">
+                    {{ book.progress }}%
+                  </div>
+                </div>
+                <small class="text-muted">Elolvasva: {{ book.progress }}%</small>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Already Read -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h3 class="mb-3">✅ Elolvastam</h3>
+      <div class="row">
+        @for (book of books.read; track book.title) {
+          <div class="col-md-6 col-lg-4 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ book.author }}</h6>
+                <p class="card-text">
+                  <span class="badge bg-primary">{{ book.category }}</span>
+                  <span class="badge bg-secondary ms-1">{{ book.year }}</span>
+                </p>
+                <div class="mb-2">
+                  @for (star of getRatingStars(book.rating); track star) {
+                    <span class="text-warning">{{ star }}</span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Want to Read -->
+  <div class="row">
+    <div class="col-12">
+      <h3 class="mb-3">📋 Szeretném elolvasni</h3>
+      <div class="row">
+        @for (book of books.wantToRead; track book.title) {
+          <div class="col-md-6 mb-2">
+            <div class="card">
+              <div class="card-body py-2">
+                <h6 class="card-title mb-1">{{ book.title }}</h6>
+                <p class="card-text mb-1">
+                  <small class="text-muted">{{ book.author }}</small>
+                  <span class="badge bg-light text-dark ms-2">{{ book.category }}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="post-detail">
+  <!-- Post Header -->
+  <div class="post-header mb-4">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <h2 class="post-title">{{ post.title }}</h2>
+        <div class="post-meta text-muted">
+          <span class="badge bg-primary">{{ post.category }}</span>
+          <span class="ms-2">{{ post.createdAt | date:'yyyy. MM. dd. HH:mm' }}</span>
+        </div>
+      </div>
+      <app-like
+        [likeCount]="likeCount"
+        [userHasLiked]="userHasLiked"
+        [postId]="post.id"
+        (likeToggled)="onLikeToggled()">
+      </app-like>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <div class="post-content mb-5">
+    <p class="lead">{{ post.content }}</p>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="comments-section">
+    <app-comment-form
+      (commentAdded)="onCommentAdded($event)">
+    </app-comment-form>
+
+    @if (isLoading) {
+      <div class="text-center py-4">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Betöltés...</span>
+        </div>
+      </div>
+    } @else {
+      <app-comment-list
+        [comments]="comments"
+        (deleteComment)="onCommentDeleted($event)">
+      </app-comment-list>
+    }
+  </div>
+</div>

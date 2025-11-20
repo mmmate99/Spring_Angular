@@ -1,0 +1,45 @@
+<div class="comment-form">
+  <h6>Új hozzászólás</h6>
+  <form (ngSubmit)="onSubmit()" #commentForm="ngForm">
+    <div class="mb-3">
+      <label for="author" class="form-label">Név *</label>
+      <input
+        type="text"
+        class="form-control"
+        id="author"
+        [(ngModel)]="author"
+        name="author"
+        required
+        maxlength="50"
+        placeholder="Add meg a neved">
+    </div>
+    
+    <div class="mb-3">
+      <label for="content" class="form-label">Hozzászólás *</label>
+      <textarea
+        class="form-control"
+        id="content"
+        [(ngModel)]="content"
+        name="content"
+        required
+        rows="3"
+        maxlength="500"
+        placeholder="Írd ide a hozzászólásodat...">
+      </textarea>
+      <div class="form-text">
+        {{ content.length }}/500 karakter
+      </div>
+    </div>
+    
+    <div class="d-flex justify-content-between align-items-center">
+      <small class="text-muted">* kötelező mező</small>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!canSubmit()"
+        [class.btn-loading]="isSubmitting">
+        {{ isSubmitting ? 'Küldés...' : 'Hozzászólás küldése' }}
+      </button>
+    </div>
+  </form>
+</div>

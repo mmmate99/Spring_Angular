@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <!-- Hero Section -->
+  <div class="row mb-5">
+    <div class="col-12 text-center">
+      <h1 class="display-4 mb-3">Üdvözöllek! 👋</h1>
+      <p class="lead">Ez az én személyes portfólió oldalam, ahol megoszthatom projektjeimet és gondolataimat.</p>
+    </div>
+  </div>
+
+  <!-- Featured Posts -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="mb-4">Legfrissebb bejegyzések</h2>
+      <div class="row">
+        @for (post of posts; track post.id) {
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <span class="badge bg-primary mb-2">{{ post.category }}</span>
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content }}</p>
+                <small class="text-muted">{{ post.createdAt | date:'yyyy. MM. dd.' }}</small>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+    <!-- A post card-ok után add hozzá -->
+    @for (post of posts; track post.id) {
+    <div class="col-12 mb-5">
+        <div class="card">
+        <div class="card-body">
+            <app-post-detail [post]="post"></app-post-detail>
+        </div>
+        </div>
+    </div>
+    }
+
+  <!-- Quick Stats -->
+  <div class="row">
+    <div class="col-md-3 col-6 mb-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="text-primary">{{ recentGames.length }}</h3>
+          <p class="mb-0">Projekt</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="text-success">2</h3>
+          <p class="mb-0">Kész játék</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="text-warning">1</h3>
+          <p class="mb-0">Folyamatban</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="text-info">5+</h3>
+          <p class="mb-0">Könyv</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

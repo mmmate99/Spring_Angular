@@ -1,0 +1,138 @@
+/* CSS VARIABLES FOR THEMES */
+:root[data-theme="light"] {
+  /* Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  
+  --border-color: #dee2e6;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* Component specific */
+  --card-bg: #ffffff;
+  --card-border: #e9ecef;
+  --navbar-bg: #ffffff;
+  --footer-bg: #f8f9fa;
+  
+  /* Buttons */
+  --btn-primary-bg: #007bff;
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: #6c757d;
+  --btn-secondary-text: #ffffff;
+  
+  /* Links */
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+}
+
+:root[data-theme="dark"] {
+  /* Colors */
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  
+  --border-color: #30363d;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  
+  /* Component specific */
+  --card-bg: #161b22;
+  --card-border: #30363d;
+  --navbar-bg: #161b22;
+  --footer-bg: #0d1117;
+  
+  /* Buttons */
+  --btn-primary-bg: #238636;
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: #21262d;
+  --btn-secondary-text: #c9d1d9;
+  
+  /* Links */
+  --link-color: #58a6ff;
+  --link-hover-color: #79c0ff;
+}
+
+/* Apply CSS variables to elements */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Bootstrap component overrides */
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+}
+
+.navbar {
+  background-color: var(--navbar-bg) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: var(--text-primary) !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--link-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.btn-outline-primary {
+  border-color: var(--btn-primary-bg);
+  color: var(--btn-primary-bg);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.bg-light {
+  background-color: var(--bg-secondary) !important;
+}
+
+.border {
+  border-color: var(--border-color) !important;
+}
+
+/* Custom component styles */
+.comment-card {
+  background: var(--bg-secondary);
+  border-left-color: var(--btn-primary-bg);
+}
+
+.comment-form {
+  background: var(--bg-secondary);
+}
+
+.like-btn {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.like-btn.liked {
+  background: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
