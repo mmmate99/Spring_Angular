@@ -60,4 +60,65 @@
       </div>
     }
   </div>
+
+
+
+<div class="row mt-5">
+  <div class="col-12">
+    <h2 class="mb-4">🎮 Élő Demók</h2>
+    
+    <!-- Code Editor Demo -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">💻 Kód Szerkesztő</h5>
+            <p class="card-text">Interaktív kód szerkesztő a projektek bemutatásához.</p>
+            
+            <app-code-editor 
+              [code]="exampleCode"
+              [language]="'typescript'"
+              [height]="'300px'"
+              [readOnly]="false">
+            </app-code-editor>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Snake Game Demo -->
+    <div class="row mb-5">
+      <div class="col-12 col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">🐍 Snake Játék</h5>
+            <p class="card-text">Klasszikus Snake játék TypeScript-ben és Canvas API-val.</p>
+            
+            <app-snake-game
+              [width]="400"
+              [height]="400"
+              [gridSize]="20">
+            </app-snake-game>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Demo Embed -->
+      <div class="col-12 col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">🌐 Live Demo</h5>
+            <p class="card-text">Külső projektek beágyazása iframe-en keresztül.</p>
+            
+            <app-demo-embed
+              src="https://codesandbox.io/embed/new?view=preview"
+              title="CodeSandbox Demo"
+              height="300px">
+            </app-demo-embed>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

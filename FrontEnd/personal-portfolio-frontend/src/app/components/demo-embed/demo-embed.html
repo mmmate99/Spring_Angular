@@ -1,0 +1,23 @@
+<div class="demo-embed">
+  <div class="embed-header mb-2">
+    <h6>{{ title }}</h6>
+    <small class="text-muted">Live Preview</small>
+  </div>
+  
+  <div class="embed-container">
+    <iframe [attr.src]="src" 
+            [title]="title"
+            [style.width]="width"
+            [style.height]="height"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+    </iframe>
+  </div>
+  
+  <div class="embed-footer mt-2">
+    <small class="text-muted">
+      🔗 <a [href]="src" target="_blank">Megnyitás új lapon</a>
+    </small>
+  </div>
+</div>

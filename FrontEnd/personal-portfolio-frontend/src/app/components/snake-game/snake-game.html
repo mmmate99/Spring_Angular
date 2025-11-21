@@ -1,0 +1,26 @@
+<div class="snake-game">
+  <div class="game-header mb-3">
+    <h5>🐍 Snake Játék</h5>
+    <div class="game-controls">
+      <span class="badge bg-primary">Pont: {{ score }}</span>
+      <button class="btn btn-sm btn-outline-secondary ms-2" (click)="restartGame()">
+        🔄 Újraindítás
+      </button>
+    </div>
+  </div>
+  
+  <div class="game-container">
+    <canvas 
+      id="snake-canvas" 
+      class="game-canvas"
+      [style.width.px]="width"
+      [style.height.px]="height">
+    </canvas>
+  </div>
+  
+  <div class="game-instructions mt-3">
+    <small class="text-muted">
+      🎮 Használd a nyíl gombokat a mozgáshoz. Egyél a piros ételeket és ütközz a falba vagy önmagadba!
+    </small>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.demo-embed {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.embed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.embed-container {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.embed-container iframe {
+  display: block;
+  border: none;
+}
+
+.embed-footer a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.embed-footer a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}

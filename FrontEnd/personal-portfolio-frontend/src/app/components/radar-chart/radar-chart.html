@@ -1,0 +1,37 @@
+<div class="radar-chart-container">
+  <div class="chart-header mb-3">
+    <h5>📊 Technológiai Tudás Radar</h5>
+    <small class="text-muted">Kattints a kategóriákra a részletekért</small>
+  </div>
+  
+  <div class="chart-wrapper">
+    <canvas id="radar-chart" 
+            [style.width]="width" 
+            [style.height]="height">
+    </canvas>
+  </div>
+
+  @if (showLegend) {
+    <div class="skills-legend mt-4">
+      <h6>🧩 Készségek részletesen</h6>
+      <div class="skills-grid">
+        @for (skill of skills; track skill.name) {
+          <div class="skill-item">
+            <span class="skill-name">{{ skill.name }}</span>
+            <div class="skill-level">
+              <div class="level-bar">
+                <div class="level-fill" 
+                     [style.width.%]="(skill.level / 10) * 100"
+                     [style.background]="getSkillLevelColor(skill.level)">
+                </div>
+              </div>
+              <span class="level-text" [style.color]="getSkillLevelColor(skill.level)">
+                {{ getSkillLevelText(skill.level) }} ({{ skill.level }}/10)
+              </span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

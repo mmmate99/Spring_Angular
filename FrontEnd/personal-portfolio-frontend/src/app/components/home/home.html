@@ -73,4 +73,168 @@
       </div>
     </div>
   </div>
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title mb-4">🚀 Technológiai Készségek</h2>
+          
+          <div class="row">
+            <div class="col-lg-8">
+              <app-radar-chart 
+                [skills]="skills"
+                [width]="'100%'"
+                [height]="'400px'"
+                [showLegend]="true">
+              </app-radar-chart>
+            </div>
+            
+            <div class="col-lg-4">
+              <div class="skills-summary">
+                <h5>🎯 Főbb erősségek</h5>
+                
+                @for (skill of topSkills; track skill.name) {
+                  <div class="top-skill-item mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <span class="skill-name">{{ skill.name }}</span>
+                      <span class="skill-level-badge" 
+                            [style.background]="getSkillColor(skill.level)">
+                        {{ skill.level }}/10
+                      </span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                      <div class="progress-bar" 
+                          [style.width.%]="(skill.level / 10) * 100"
+                          [style.background]="getSkillColor(skill.level)">
+                      </div>
+                    </div>
+                  </div>
+                }
+                
+                <div class="skill-stats mt-4">
+                  <h6>📈 Statisztikák</h6>
+                  <div class="stats-grid">
+                    <div class="stat-item text-center">
+                      <div class="stat-number text-primary">{{ skills.length }}</div>
+                      <div class="stat-label">Összes skill</div>
+                    </div>
+                    <div class="stat-item text-center">
+                      <div class="stat-number text-success">{{ getCategories().length }}</div>
+                      <div class="stat-label">Kategória</div>
+                    </div>
+                    <div class="stat-item text-center">
+                      <div class="stat-number text-warning">{{ getAverageLevel() }}/10</div>
+                      <div class="stat-label">Átlagos szint</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title mb-4">📈 Coding Statistics</h2>
+          
+          <!-- Overview Stats -->
+          <div class="row mb-4">
+            <div class="col-md-3 col-6 mb-3">
+              <div class="stat-card text-center">
+                <div class="stat-icon">💾</div>
+                <div class="stat-number">{{ codingStats.totalCommits }}</div>
+                <div class="stat-label">Összes Commit</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+              <div class="stat-card text-center">
+                <div class="stat-icon">📁</div>
+                <div class="stat-number">{{ codingStats.totalProjects }}</div>
+                <div class="stat-label">Projekt</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+              <div class="stat-card text-center">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-number">{{ codingStats.codingStreak }}</div>
+                <div class="stat-label">Coding Streak</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+              <div class="stat-card text-center">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-number">{{ githubStats.stars }}</div>
+                <div class="stat-label">GitHub Stars</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts -->
+          <div class="row">
+            <div class="col-lg-4 mb-4">
+              <app-languages-chart 
+                [languages]="codingStats.languages"
+                [height]="'300px'">
+              </app-languages-chart>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+              <app-commits-chart 
+                [commits]="codingStats.commitsPerMonth"
+                [height]="'300px'">
+              </app-commits-chart>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+              <app-projects-chart 
+                [projects]="codingStats.projectsByStatus"
+                [height]="'300px'">
+              </app-projects-chart>
+            </div>
+          </div>
+
+          <!-- Productivity Stats -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <div class="productivity-stats">
+                <h6>🚀 Productivitás</h6>
+                <div class="row text-center">
+                  <div class="col-md-3 col-6 mb-3">
+                    <div class="productivity-item">
+                      <div class="productivity-value">{{ productivityStats.averageDailyCommits }}</div>
+                      <div class="productivity-label">Átlagos commit/nap</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6 mb-3">
+                    <div class="productivity-item">
+                      <div class="productivity-value">{{ productivityStats.mostProductiveDay }}</div>
+                      <div class="productivity-label">Legtermékenyebb nap</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6 mb-3">
+                    <div class="productivity-item">
+                      <div class="productivity-value">{{ productivityStats.codingHoursPerWeek }}h</div>
+                      <div class="productivity-label">Kódolás/hét</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6 mb-3">
+                    <div class="productivity-item">
+                      <div class="productivity-value">{{ productivityStats.favoriteTime }}</div>
+                      <div class="productivity-label">Kedvenc időszak</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

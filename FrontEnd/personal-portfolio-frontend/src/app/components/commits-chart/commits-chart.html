@@ -1,0 +1,29 @@
+<div class="commits-chart-container">
+  <div class="chart-header mb-3">
+    <h6>📅 Havi Commit Statisztikák</h6>
+    <small class="text-muted">Aktivitás az elmúlt 12 hónapban</small>
+  </div>
+  
+  <div class="chart-wrapper">
+    <canvas id="commits-chart" 
+            [style.height]="height">
+    </canvas>
+  </div>
+
+  <div class="commits-stats mt-3">
+    <div class="row text-center">
+      <div class="col-4">
+        <div class="stat-value text-primary">{{ getTotalCommits() }}</div>
+        <div class="stat-label">Összes commit</div>
+      </div>
+      <div class="col-4">
+        <div class="stat-value text-success">{{ getAverageCommits() }}</div>
+        <div class="stat-label">Átlag / hónap</div>
+      </div>
+      <div class="col-4">
+        <div class="stat-value text-warning">{{ getMostActiveMonth() }}</div>
+        <div class="stat-label">Legaktívabb</div>
+      </div>
+    </div>
+  </div>
+</div>

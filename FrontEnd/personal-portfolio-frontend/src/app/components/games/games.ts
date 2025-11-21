@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SnakeGameComponent } from '../snake-game/snake-game';
+import { DemoEmbedComponent } from '../demo-embed/demo-embed';
+import { CodeEditorComponent } from '../code-editor/code-editor';
 
 @Component({
   selector: 'app-games',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SnakeGameComponent, DemoEmbedComponent, CodeEditorComponent],
   templateUrl: './games.html',
   styleUrl: './games.css'
 })
@@ -41,6 +44,25 @@ export class GamesComponent {
       features: ['50+ puzzle', 'Bonyolult történet', 'Többjátékos mód']
     }
   ];
+  exampleCode = `// Angular komponens példa
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-game',
+      template: \`
+        <div class="game-container">
+          <h2>{{ title }}</h2>
+          <button (click)="startGame()">Start Game</button>
+        </div>
+      \`
+    })
+    export class GameComponent {
+      title = 'My Awesome Game';
+
+      startGame() {
+        console.log('Game started!');
+      }
+    }`;
 
   getStatusClass(status: string): string {
     switch (status) {

@@ -1,0 +1,19 @@
+<div class="projects-chart-container">
+  <div class="chart-header mb-3">
+    <h6>📁 Projekt Státusz</h6>
+    <small class="text-muted">Projektek állapota szerint</small>
+  </div>
+  
+  <div class="chart-wrapper">
+    <canvas id="projects-chart" 
+            [style.height]="height">
+    </canvas>
+  </div>
+
+  <div class="projects-stats mt-3">
+    <div class="text-center">
+      <div class="stat-value text-primary">{{ getTotalProjects() }}</div>
+      <div class="stat-label">Összes projekt</div>
+    </div>
+  </div>
+</div>

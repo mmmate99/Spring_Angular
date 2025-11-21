@@ -1,0 +1,27 @@
+.snake-game {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+}
+
+.game-canvas {
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-primary);
+}
+
+.game-instructions {
+  text-align: center;
+}

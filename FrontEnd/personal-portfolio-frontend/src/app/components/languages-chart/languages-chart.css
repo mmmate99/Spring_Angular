@@ -1,0 +1,18 @@
+.languages-chart-container {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  height: 100%;
+}
+
+.chart-wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+
+.btn-group .btn.active {
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
